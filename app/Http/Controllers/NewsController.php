@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function getNews(){
-        $rssUrl = "https://bonpote.com/feed/"
+        $rssUrl = "https://bonpote.com/feed/";
+
         if ($rssUrl !== false)
         {
             $rss = simplexml_load_file($rssUrl);
