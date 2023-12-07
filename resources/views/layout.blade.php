@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
 
-            background: linear-gradient(to top, #000000, #292757);
+            background: linear-gradient(to top, #000000, #27573a);
 
             overflow-y: hidden;
         }
