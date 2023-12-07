@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ env('INSTAGRAM_URL') }}" target="_blank">
             <img src="{{ asset('img/logo_solair.png') }}" alt="Logo" width="90" height="90"
