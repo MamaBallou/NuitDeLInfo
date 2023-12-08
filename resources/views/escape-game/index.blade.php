@@ -31,11 +31,20 @@
             width: 40%;
             position: absolute;
             bottom: 1.5em;
-            left: 17%;
+            left: 30%;
         }
 
         #dialog-span {
             font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+            text-shadow: 0 0 1em black;
+
+            position: absolute;
+        }
+
+        #cliquer-span {
+            font-size: 1em;
             font-weight: bold;
             color: black;
             text-shadow: 0 0 1em black;
@@ -68,9 +77,10 @@
 
     <img src="{{ asset('img/escape_game/chambre.png') }}" alt="escape_game" class="escape-bg-image" id="escape-bg-1">
     <img src="{{ asset('img/escape_game/telescope.png') }}" alt="escape_game" class="escape-bg-image" id="escape-bg-2">
-    <img src="{{ asset('img/escape_game/bulle-dialogue.png') }}" alt="escape_game" class="show-after" id="escape-dialogue">
+    <img src="{{ asset('img/escape_game/bulle-dialogue.png') }}" alt="escape_game" class="show-after dialog-element" id="escape-dialogue">
     
-    <span id="dialog-span" class="show-after"></span>
+    <span id="dialog-span" class="show-after dialog-element"></span>
+    <span id="cliquer-span" class="show-after dialog-element">Cliquer pour continuer</span>
 @endsection
 
 @section('scripts')

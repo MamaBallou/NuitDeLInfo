@@ -112,8 +112,25 @@
             this.etape = 0;
             this.dialog_index = 0;
             this.dialogs = {
-                1: "M... Mais... Qu'est-ce que c'est que ça ?!"
-            }
+                1: "M... Mais... Qu'est-ce que c'est que ça ?!",
+                2: "J'y vois double... Mais littéralement !",
+                3: "Il y a la chambre que je connais...",
+                4: "Et l'autre, que s'est-il passé ?!",
+                5: "Bon, on n'a pas vraiment eu le temps",
+                6: "d'écrire d'autres dialogues",
+                7: "Alors on laisse faire GithubCopilot",
+                8: "pour nous aider à finir ce jeu.",
+                9: "Mais en attendant, on va vous laisser",
+                10: "et vous laisser découvrir la suite",
+                11: "de l'histoire par vous-même.",
+                12: "Ah non du coup il n'y a pas de suite...",
+                13: "Ok Google raconte-moi une blague",
+                14: "C'est l'histoire d'un pingouin qui respire par les fesses.",
+                15: "Un jour il s'assoit et il meurt.",
+                16: "Fin.",
+                17: "Bon, on va vous laisser.",
+                18: "A bientôt !",
+            };
         }
 
         showImage(image, index) {
@@ -159,8 +176,12 @@
                 duration: 750,
                 complete: function() {
                     instance.floatelement($('#escape-dialogue'));
-                    instance.floatelement($('#dialog-span'), 3.5);
+                    instance.floatelement($('#dialog-span'), 3.8);
+                    instance.floatelement($('#cliquer-span'), 4);
                 }
+            });
+            $('.dialog-element').on('click', function() {
+                instance.nextDialog();
             });
         }
 
@@ -182,7 +203,12 @@
         }
 
         nextDialog() {
-            this.dialog_index++;
+            if (this.dialog_index === 18) {
+                this.dialog_index = 1;
+            } else {
+                this.dialog_index++;
+            }
+            $('#dialog-span').html('');
             $('#dialog-span').text(this.dialogs[this.dialog_index]);
         }
 
@@ -190,7 +216,9 @@
             $('body').css('background-image', 'none');
             $('#content-wrapper').css('overflow-y', 'hidden');
             $('#dialog-span').css('left', parseFloat($('#escape-dialogue').css('left')) + 35 + "px");
-            $('#dialog-span').css('bottom', '4.5em');
+            $('#dialog-span').css('bottom', parseFloat($('#escape-dialogue').css('bottom')) + 85 + "px");
+            $('#cliquer-span').css('left', parseFloat($('#escape-dialogue').css('left')) + 405 + "px");
+            $('#cliquer-span').css('bottom', parseFloat($('#escape-dialogue').css('bottom')) + 65 + "px");
             this.cacherNav();
             this.nextDialog();
         }
