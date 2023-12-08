@@ -42,7 +42,8 @@
             width: 100%;
             height: 100%;
 
-            background: linear-gradient(to top, #373737, #647d62);
+            /* background: linear-gradient(to top, #373737, #647d62); */
+            background-color: #054f68;
 
             overflow-y: hidden;
         }
@@ -56,11 +57,26 @@
             overflow-x: hidden;
 
             position: relative;
+
+            background-image: url("{{ asset('img/background-3.png') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         #page-wrapper {
             width: 100%;
         }
+
+        /* #content-background-image {
+            width: 100%;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: -1;
+        } */
 
         /* scrollbar */
         ::-webkit-scrollbar {
@@ -101,6 +117,10 @@
     @endif
 
     <script>
+        $(function() {
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+
         function resizeLayout() {
             $('#content-wrapper').css('margin-top', $('.navbar').outerHeight());
             $('#content-wrapper').css('height', $('body').height() - $('.navbar').outerHeight());
@@ -110,19 +130,25 @@
             }
         }
 
+        function parallax() {
+            var scrollPosition = $('#content-wrapper').scrollTop();
+            $('#content-wrapper').css('background-position', '50% ' + (-scrollPosition * 0.3) + 'px');
+        }
+
         function ajouterListenersLayout() {
             $(window).resize(function() {
                 resizeLayout();
+            });
+
+            $('#content-wrapper').scroll(function() {
+                parallax();
             });
         }
 
         $(document).ready(function() {
             resizeLayout();
             ajouterListenersLayout();
-        });
-
-        $(function () {
-            $('[data-bs-toggle="tooltip"]').tooltip();
+            parallax();
         });
     </script>
     @yield('scripts')
