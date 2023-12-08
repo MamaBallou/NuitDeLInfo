@@ -40,7 +40,6 @@
 @endsection
 
 @section('content')
-<img src="{{ asset('img/logo_solair.png') }}" alt="logo" id="accueil-background-image">
 <div class="container">
     <div class="blur-background">
         <h1 class="text-center">Bienvenue sur le site de Sol'Air</h1>
