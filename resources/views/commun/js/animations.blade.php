@@ -92,12 +92,16 @@
                             });
                         }
                     });
-                }, card.attr('data-index') * 250);
+                }, card.attr('data-index') * 200);
             }
 
             this.cards.each(function(index) {
-                showCard($(this));
-                float($(this));
+                let card = $(this);
+                setTimeout(function() {
+                    float(card);
+                }, index * 200);
+
+                showCard(card);
             });
         }
     }
