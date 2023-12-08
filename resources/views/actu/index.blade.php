@@ -1,21 +1,7 @@
 @extends('layout')
 
 @section('styles')
-    <style>
-        .actu-card {
-            width: 30%;
-            color: black;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-            transition: all 0.3s ease-in-out;
-        }
-        .actu-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 0px 10px 0px rgba(251, 251, 251, 0.75);
-            cursor: pointer;
-        }
-    </style>
+    @include('commun.css.actualites.style-index')
 @endsection
 
 @section('content')

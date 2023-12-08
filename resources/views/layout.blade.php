@@ -105,8 +105,8 @@
             $('#content-wrapper').css('margin-top', $('.navbar').outerHeight());
             $('#content-wrapper').css('height', $('body').height() - $('.navbar').outerHeight());
 
-            if (($('#page-wrapper').outerHeight() + $('#ptiteteuf-footer').outerHeight() + 15) < $('#content-wrapper').height()) {
-                $('#page-wrapper').css('height', $('#content-wrapper').height() - $('#ptiteteuf-footer').outerHeight());
+            if (($('#page-wrapper').outerHeight() + 15) < $('#content-wrapper').height()) {
+                $('#page-wrapper').css('height', $('#content-wrapper').height());
             }
         }
 
