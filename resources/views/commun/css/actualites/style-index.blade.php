@@ -19,6 +19,7 @@
     .actu-card:hover {
         cursor: pointer;
         box-shadow: 8px 8px 1.5em 0.2em rgba(137, 137, 137, 0.5);
+        color: black;
 
         /* border: 0.5em solid white; */
     }
