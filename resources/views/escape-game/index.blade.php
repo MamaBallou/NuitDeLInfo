@@ -2,6 +2,9 @@
 
 @section('styles')
     <style>
+        body {
+            user-select: none;
+        }
         .escape-bg-image {
             width: 100%;
             /* height: 100%; */
