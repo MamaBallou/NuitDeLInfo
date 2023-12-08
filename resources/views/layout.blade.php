@@ -42,7 +42,7 @@
             width: 100%;
             height: 100%;
 
-            background: linear-gradient(to top, #000000, #27573a);
+            background: linear-gradient(to top, #373737, #50804d);
 
             overflow-y: hidden;
         }
@@ -119,6 +119,10 @@
         $(document).ready(function() {
             resizeLayout();
             ajouterListenersLayout();
+        });
+
+        $(function () {
+            $('[data-bs-toggle="tooltip"]').tooltip();
         });
     </script>
     @yield('scripts')

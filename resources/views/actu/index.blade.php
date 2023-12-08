@@ -7,7 +7,7 @@
 @section('content')
     <div class="title-wrapper w-100 d-flex flex-column align-items-center">
         <h1 class="text-center text-light">Actualités</h1>
-        <a href="https://bonpote.com/" target="_blank" class="btn btn-success w-25">Source : https://bonpote.com/</a>
+        <a href="https://bonpote.com/" target="_blank" class="btn btn-warning" style="color: white;" data-bs-toggle="tooltip" data-bs-title="Cliquez pour y aller">Source : https://bonpote.com/</a>
     </div>
     <div class="row d-flex flew-wrap flex-row justify-content-around">
         @foreach ($actualites as $actualite)
