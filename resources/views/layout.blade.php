@@ -53,6 +53,7 @@
             padding-top: 1em;
 
             overflow-y: scroll;
+            overflow-x: hidden;
 
             position: relative;
         }
@@ -88,7 +89,7 @@
     </style>
     @yield('styles')
 
-    @include('components.navbar')
+    @include('components.navbar.navbar')
     <div id="content-wrapper">
         <div id="page-wrapper">
             @yield('content')

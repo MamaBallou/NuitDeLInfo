@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class ActuController extends Controller
 {
+    private const ABILITY = 'actu';
+
+    public function index()
+    {
+        $actualites = $this->getNews();
+        return view(self::ABILITY . '.index', compact('actualites'));
+    }
+
     public function getNews(){
         $rssUrl = "https://bonpote.com/feed/";
 
@@ -14,7 +22,12 @@ class NewsController extends Controller
             $rss = simplexml_load_file($rssUrl);
             if ($rss !== false)
             {
-                $items = $rss->channel->item;
+                $items = [];
+
+                foreach($rss->channel->item as $item) {
+                    array_push($items, $item);
+                }
+
                 return $items;
             }
             else
@@ -26,11 +39,5 @@ class NewsController extends Controller
         {
             return "Erreur lors de la récupération du flux RSS.";
         }
-    }
-
-    public function index() {
-        $news = $this->getNews();
-        dd($news);
-        return view('actu.index', compact('news'));
     }
 }

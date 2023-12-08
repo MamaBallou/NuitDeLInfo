@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\ActuController;
+use App\Http\Controllers\QuizzController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name('accueil.index');
+Route::get('/', [AccueilController::class, 'index'])->name('accueil.index');
+
+Route::get('/actu', [ActuController::class, 'index'])->name('actu.index');
+
+Route::get('/quizz', [QuizzController::class, 'index'])->name('quizz.index');

@@ -10,12 +10,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                @include('components.navbar-item', [
+                @include('components.navbar.navbar-item', [
                     'chemin' => 'accueil',
                     'titre' => 'Accueil',
                 ])
-                <x.navbar-item chemin="/" titre="Accueil" />
-                {{-- @include('components.navbar-dropdown-item', [
+                @include('components.navbar.navbar-item', [
+                    'chemin' => 'actu',
+                    'titre' => 'Actualités',
+                ])
+                @include('components.navbar.navbar-item', [
+                    'chemin' => 'quizz',
+                    'titre' => 'Quizz',
+                ])
+                {{-- @include('components.navbar.navbar-dropdown-item', [
                     'titre' => 'Evénements',
                     'model' => 'evenement',
                     'sub_item' => [
