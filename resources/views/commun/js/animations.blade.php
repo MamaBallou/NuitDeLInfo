@@ -105,4 +105,94 @@
             });
         }
     }
+
+
+    class EscapeGame {
+        constructor() {
+            this.etape = 0;
+            this.dialog_index = 0;
+            this.dialogs = {
+                1: "M... Mais... Qu'est-ce que c'est que ça ?!"
+            }
+        }
+
+        showImage(image, index) {
+            let instance = this;
+            setTimeout(function() {
+                image.animate({
+                    opacity: 1,
+                }, {
+                    duration: 750,
+                    queue: true,
+                    complete: function() {
+                        if (index === 1) instance.showAfter();
+                    }
+                });
+            }, index * 500);
+        };
+
+        cacherNav() {
+            $('body').animate({
+                backgroundColor: "black",
+            }, {
+                duration: 750,
+            });
+
+            let instance = this;
+            $('nav').animate({
+                top: "-=10em",
+            }, {
+                duration: 750,
+                complete: function() {
+                    $('.escape-bg-image').each(function(index) {
+                        instance.showImage($(this), index);
+                    });
+                }
+            });
+        }
+
+        showAfter() {
+            let instance = this;
+            $('.show-after').animate({
+                opacity: 1,
+            }, {
+                duration: 750,
+                complete: function() {
+                    instance.floatelement($('#escape-dialogue'));
+                    instance.floatelement($('#dialog-span'), 3.5);
+                }
+            });
+        }
+
+        floatelement(element, delta = 0, bottom = -0.5) {
+            element.hover(function() {
+                $(this).css('cursor', 'pointer');
+            });
+            let instance = this;
+            element.animate({
+                bottom: bottom + delta + 'em',
+            }, {
+                duration: 500,
+                queue: false,
+                complete: function() {
+                    bottom *= -1;
+                    instance.floatelement(element, delta, bottom);
+                }
+            });
+        }
+
+        nextDialog() {
+            this.dialog_index++;
+            $('#dialog-span').text(this.dialogs[this.dialog_index]);
+        }
+
+        init() {
+            $('body').css('background-image', 'none');
+            $('#content-wrapper').css('overflow-y', 'hidden');
+            $('#dialog-span').css('left', parseFloat($('#escape-dialogue').css('left')) + 35 + "px");
+            $('#dialog-span').css('bottom', '4.5em');
+            this.cacherNav();
+            this.nextDialog();
+        }
+    }
 </script>
