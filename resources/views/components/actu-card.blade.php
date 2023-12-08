@@ -1,4 +1,4 @@
-<a class="card actu-card" style="text-decoration: none;" href="{{ $lien }}" target="_blank">
+<a class="card actu-card" style="text-decoration: none;" href="{{ $lien }}" target="_blank" data-index="{{$index}}">
     <div class="card-header">
         <h5 class="card-title">{{ $titre }}</h5>
     </div>
