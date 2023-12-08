@@ -5,13 +5,17 @@
 @endsection
 
 @section('content')
-    <h1 class="text-center text-light">Actualités</h1>
+    <div class="title-wrapper w-100 d-flex flex-column align-items-center">
+        <h1 class="text-center text-light">Actualités</h1>
+        <a href="https://bonpote.com/" target="_blank" class="btn btn-success w-25">Source : https://bonpote.com/</a>
+    </div>
     <div class="row d-flex flew-wrap flex-row justify-content-around">
         @foreach ($actualites as $actualite)
             @include('components.actu-card', [
                 'titre' => $actualite->title,
                 'description' => $actualite->description,
                 'lien' => $actualite->link,
+                'index' => $loop->index,
             ])
         @endforeach
     </div>
