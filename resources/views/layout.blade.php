@@ -46,22 +46,28 @@
             background-color: #054f68;
 
             overflow-y: hidden;
+
+            background-image: url("{{ asset('img/background-3.png') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         #content-wrapper {
             width: 100%;
 
-            padding-top: 1em;
+            padding: 1em 0;
+            
 
             overflow-y: scroll;
             overflow-x: hidden;
 
             position: relative;
 
-            background-image: url("{{ asset('img/background-3.png') }}");
+            /* background-image: url("{{ asset('img/background-3.png') }}");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
         }
 
         #page-wrapper {
@@ -132,7 +138,9 @@
 
         function parallax() {
             var scrollPosition = $('#content-wrapper').scrollTop();
-            $('#content-wrapper').css('background-position', '50% ' + (-scrollPosition * 0.3) + 'px');
+            $('body').css('background-position', '50% ' + (-scrollPosition * 0.3) + 'px');
+            
+            $('nav').css('opacity', 1 - scrollPosition/600);
         }
 
         function ajouterListenersLayout() {

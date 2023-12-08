@@ -39,7 +39,8 @@
     .navbar {
         box-shadow: 0 0 1em 0.75em rgba(0, 0, 0, 0.5);
 
-        background-color: #49704f;
+        /* background-color: #49704f; */
+        background: linear-gradient(to left, #373737, #49704f);
 
         user-select: none;
     }
