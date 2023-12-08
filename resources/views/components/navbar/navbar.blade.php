@@ -10,18 +10,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                @include('components.navbar.navbar-item', [
-                    'chemin' => 'accueil',
-                    'titre' => 'Accueil',
-                ])
-                @include('components.navbar.navbar-item', [
-                    'chemin' => 'actu',
-                    'titre' => 'Actualités',
-                ])
-                @include('components.navbar.navbar-item', [
-                    'chemin' => 'quizz',
-                    'titre' => 'Quizz',
-                ])
+                @foreach (App\Enums\Pages::names() as $name => $value)
+                    @include('components.navbar.navbar-item', [
+                        'chemin' => $name,
+                        'titre' => $value,
+                    ])
+                @endforeach
                 {{-- @include('components.navbar.navbar-dropdown-item', [
                     'titre' => 'Evénements',
                     'model' => 'evenement',
@@ -45,7 +39,7 @@
     .navbar {
         box-shadow: 0 0 1em 0.75em rgba(0, 0, 0, 0.5);
 
-        background-color: #59a063;
+        background-color: #49704f;
 
         user-select: none;
     }
