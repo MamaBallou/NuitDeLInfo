@@ -6,6 +6,8 @@
         width: 20em;
         height: 20em;
 
+        padding: 0 !important;
+
         opacity: 0;
 
         text-decoration: none;
